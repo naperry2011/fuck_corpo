@@ -1,0 +1,655 @@
+/* Application Wizard */
+
+.application {
+  width: 100%;
+  max-width: var(--card-max-width);
+  margin-bottom: var(--space-xxl);
+  padding: var(--space-l);
+}
+
+.application:hover {
+  transform: none;
+}
+
+/* ── Progress Indicator ─────────────────────────── */
+
+.app-progress {
+  margin-bottom: var(--space-l);
+}
+
+.app-step-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted-gold);
+  margin-bottom: var(--space-xxs);
+}
+
+.app-progress-track {
+  height: 3px;
+  background: rgba(119, 141, 169, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.app-progress-fill {
+  height: 100%;
+  background: var(--color-green);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* ── Step Container ─────────────────────────────── */
+
+.app-step {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xxs);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: var(--space-m);
+  transition: color 0.2s ease;
+  align-self: flex-start;
+}
+
+.app-back:hover {
+  color: var(--color-white);
+}
+
+.app-step-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-l);
+  color: var(--color-white);
+}
+
+/* ── Step 1: Cover Page ─────────────────────────── */
+
+.app-step-cover {
+  align-items: center;
+  text-align: center;
+  padding: var(--space-m) 0;
+}
+
+.app-letterhead {
+  margin-bottom: var(--space-xl);
+}
+
+.app-logo-text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: var(--color-muted-gold);
+}
+
+.app-logo-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-muted-gold), transparent);
+  margin: var(--space-xs) auto;
+}
+
+.app-logo-sub {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-gray);
+  text-transform: uppercase;
+}
+
+.app-cover-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-l);
+  color: var(--color-white);
+}
+
+.app-cover-details {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto var(--space-xl);
+  text-align: left;
+}
+
+.app-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid rgba(119, 141, 169, 0.15);
+}
+
+.app-detail-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  flex-shrink: 0;
+  margin-right: var(--space-s);
+}
+
+.app-detail-value {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-white);
+  text-align: right;
+}
+
+.app-begin-btn {
+  width: 100%;
+  max-width: 320px;
+  font-size: 1.125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-m);
+}
+
+.app-fine-print {
+  font-size: 0.6875rem;
+  color: var(--color-gray);
+  opacity: 0.5;
+  max-width: 360px;
+  line-height: 1.5;
+}
+
+/* ── Form Shared ────────────────────────────────── */
+
+.app-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  margin-bottom: var(--space-l);
+}
+
+.app-form .form-row {
+  display: flex;
+  gap: var(--space-s);
+  align-items: flex-end;
+}
+
+.app-form .form-row .form-input[type="number"],
+.app-form .form-row input.form-input {
+  flex: 2;
+  min-width: 0;
+}
+
+.app-form .form-row .form-select {
+  flex: 1;
+  min-width: 120px;
+  max-width: 180px;
+}
+
+.app-form .form-input,
+.app-form .form-select {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 18px;
+  font-size: 1.125rem;
+  color: var(--color-white);
+  background: rgba(10, 17, 40, 0.6);
+  border: 1px solid rgba(119, 141, 169, 0.3);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-form .form-input:focus,
+.app-form .form-select:focus {
+  outline: none;
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 3px rgba(0, 181, 89, 0.15);
+}
+
+.app-form .form-input::placeholder {
+  color: var(--color-gray);
+  opacity: 0.5;
+}
+
+.app-form .form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23778da9' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.app-form .form-select option {
+  background: var(--color-slate);
+  color: var(--color-white);
+}
+
+.app-next-btn {
+  width: 100%;
+  font-size: 1.125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Stars ──────────────────────────────────────── */
+
+.app-stars {
+  display: flex;
+  gap: var(--space-xxs);
+}
+
+.app-star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xxs);
+  transition: transform 0.15s ease;
+  line-height: 1;
+}
+
+.app-star-btn:hover {
+  transform: scale(1.2);
+}
+
+/* ── Radio Options ──────────────────────────────── */
+
+.app-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.app-radio-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 14px 18px;
+  min-height: 52px;
+  background: rgba(10, 17, 40, 0.6);
+  border: 1px solid rgba(119, 141, 169, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-white);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.app-radio-option:hover {
+  border-color: rgba(119, 141, 169, 0.5);
+  background: rgba(10, 17, 40, 0.8);
+}
+
+.app-radio-option.selected {
+  border-color: var(--color-green);
+  background: rgba(0, 181, 89, 0.08);
+}
+
+.app-radio-option input {
+  display: none;
+}
+
+.app-radio-indicator {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-gray);
+  transition: border-color 0.2s ease, background 0.2s ease;
+  position: relative;
+}
+
+.app-radio-option.selected .app-radio-indicator {
+  border-color: var(--color-green);
+  background: var(--color-green);
+}
+
+.app-radio-option.selected .app-radio-indicator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--color-white);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ── Toggle / Checkbox ──────────────────────────── */
+
+.app-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  cursor: pointer;
+  padding: 14px 18px;
+  min-height: 52px;
+  background: rgba(10, 17, 40, 0.6);
+  border: 1px solid rgba(119, 141, 169, 0.3);
+  border-radius: 6px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.app-toggle:hover {
+  border-color: rgba(119, 141, 169, 0.5);
+}
+
+.app-toggle.active {
+  border-color: var(--color-green);
+  background: rgba(0, 181, 89, 0.08);
+}
+
+.app-toggle input {
+  display: none;
+}
+
+.app-toggle-track {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+  background: rgba(119, 141, 169, 0.3);
+  border-radius: 13px;
+  transition: background 0.2s ease;
+}
+
+.app-toggle.active .app-toggle-track {
+  background: var(--color-green);
+}
+
+.app-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: var(--color-white);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.app-toggle.active .app-toggle-thumb {
+  transform: translateX(22px);
+}
+
+.app-toggle-label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-white);
+}
+
+/* ── Step 4: Background Check ───────────────────── */
+
+.app-step-loading {
+  align-items: center;
+  text-align: center;
+  padding: var(--space-xl) 0;
+}
+
+.app-loading-sub {
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  margin-bottom: var(--space-xl);
+}
+
+.app-check-progress-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(119, 141, 169, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: var(--space-l);
+}
+
+.app-check-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-green), var(--color-muted-gold));
+  border-radius: 4px;
+  transition: width 0.1s linear;
+}
+
+.app-status-message {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-gray);
+  min-height: 1.5em;
+  animation: statusFade 0.3s ease;
+}
+
+@keyframes statusFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.app-approved-container {
+  animation: stampIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes stampIn {
+  0% {
+    opacity: 0;
+    transform: scale(3) rotate(-15deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.95) rotate(2deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.app-approved-stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-green);
+  animation: stampShake 0.3s ease 0.4s;
+}
+
+@keyframes stampShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+.app-approved-stamp span {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 20px rgba(0, 181, 89, 0.5);
+}
+
+/* ── Step 5: Offer Letter ───────────────────────── */
+
+.app-offer-letter {
+  margin-bottom: var(--space-l);
+  border: 1px solid rgba(201, 166, 72, 0.25);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.app-offer-letterhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-s) var(--space-m);
+  background: rgba(201, 166, 72, 0.08);
+  border-bottom: 1px solid rgba(201, 166, 72, 0.2);
+}
+
+.app-offer-logo {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: var(--color-muted-gold);
+}
+
+.app-offer-dept {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+}
+
+.app-offer-body {
+  padding: var(--space-m);
+}
+
+.app-offer-body p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-gray);
+  margin-bottom: var(--space-s);
+}
+
+.app-offer-body p:last-child {
+  margin-bottom: 0;
+}
+
+.app-offer-body strong {
+  color: var(--color-white);
+}
+
+/* ── Responsive ─────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .application {
+    padding: var(--space-m);
+  }
+
+  .app-cover-title {
+    font-size: 1.5rem;
+  }
+
+  .app-step-title {
+    font-size: 1.375rem;
+  }
+
+  .app-detail-row {
+    flex-direction: column;
+    gap: var(--space-xxs);
+  }
+
+  .app-detail-value {
+    text-align: left;
+  }
+
+  .app-offer-letterhead {
+    flex-direction: column;
+    gap: var(--space-xxs);
+    text-align: center;
+  }
+
+  .app-approved-stamp span {
+    font-size: 2rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .app-form .form-row .form-select {
+    max-width: none;
+  }
+
+  /* Touch targets for star buttons */
+  .app-star-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Touch targets for radio options */
+  .app-radio-option {
+    min-height: 52px;
+  }
+
+  /* Touch targets for toggle */
+  .app-toggle {
+    min-height: 52px;
+  }
+
+  /* Form inputs full width and proper sizing */
+  .app-form .form-input,
+  .app-form .form-select {
+    min-height: 48px;
+    font-size: max(1rem, 16px);
+  }
+
+  /* Offer letter readability */
+  .app-offer-body {
+    padding: var(--space-s);
+  }
+
+  .app-offer-body p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .application {
+    padding: var(--space-s);
+  }
+
+  .app-cover-title {
+    font-size: 1.25rem;
+  }
+
+  .app-step-title {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .application {
+    padding: var(--space-xs);
+  }
+
+  .app-cover-title {
+    font-size: 1.125rem;
+  }
+
+  .app-logo-text {
+    font-size: 1.125rem;
+  }
+
+  .app-approved-stamp span {
+    font-size: 1.5rem;
+  }
+}

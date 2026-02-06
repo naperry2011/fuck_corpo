@@ -1,0 +1,173 @@
+/* FuckCorpo Design System */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@400;500;600&family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+  --color-navy: #0a1128;
+  --color-slate: #1e2749;
+  --color-white: #ffffff;
+  --color-green: #00b559;
+  --color-green-dark: #008f47;
+  --color-red: #e63946;
+  --color-gold: #ffd60a;
+  --color-gray: #778da9;
+  --color-muted-gold: #c9a648;
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Work Sans', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2rem;
+  --space-xl: 3rem;
+  --space-xxl: 4rem;
+  --space-xxxl: 6rem;
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --max-width: 1400px;
+  --content-width: 1200px;
+  --narrow-width: 800px;
+  --card-max-width: 600px;
+
+  --glow-green: 0 0 20px rgba(0, 181, 89, 0.4);
+}
+
+[data-theme="light"] {
+  --color-navy: #ffffff;
+  --color-slate: #f8f9fa;
+  --color-white: #0a1128;
+  --color-gray: rgba(30, 39, 73, 0.5);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-white);
+  background-color: var(--color-navy);
+  min-height: 100vh;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(119, 141, 169, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(119, 141, 169, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 4rem; font-weight: 900; }
+h2 { font-size: 3rem; font-weight: 700; }
+h3 { font-size: 2.25rem; font-weight: 700; }
+h4 {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+a { color: var(--color-green); text-decoration: none; transition: color 0.2s ease; }
+a:hover { color: var(--color-muted-gold); }
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  outline: none;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  /* Prevent iOS auto-zoom on focus — 16px minimum */
+  font-size: max(1rem, 16px);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-navy); }
+::-webkit-scrollbar-thumb { background: var(--color-gray); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-muted-gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+}
+
+@media (max-width: 320px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.125rem; }
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--space-m);
+}
+
+.mono { font-family: var(--font-mono); }
+.text-green { color: var(--color-green); }
+.text-red { color: var(--color-red); }
+.text-gold { color: var(--color-gold); }
+.text-gray { color: var(--color-gray); }

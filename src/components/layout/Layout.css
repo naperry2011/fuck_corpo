@@ -1,0 +1,17 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout-main {
+  flex: 1;
+  padding: var(--space-xl) 0 var(--space-xxl);
+}
+
+/* Account for fixed bottom nav on mobile */
+@media (max-width: 768px) {
+  .layout-main {
+    padding-bottom: calc(var(--space-xxl) + 70px);
+  }
+}

@@ -1,0 +1,445 @@
+/* Dashboard / Quarterly Earnings Report */
+
+.dashboard {
+  padding: var(--space-xl) var(--space-m) var(--space-xxxl);
+}
+
+/* ── Header ─────────────────────────────────────── */
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  position: relative;
+}
+
+.dashboard-confidential {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  border: 2px solid var(--color-red);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xxs) var(--space-xs);
+  margin-bottom: var(--space-s);
+  transform: rotate(-3deg);
+  opacity: 0.85;
+}
+
+.dashboard-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  margin-bottom: var(--space-xs);
+}
+
+.dashboard-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-gray);
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+/* ── Sections ───────────────────────────────────── */
+
+.dashboard-section {
+  margin-bottom: var(--space-xl);
+}
+
+.dashboard-section-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted-gold);
+  border-bottom: 1px solid rgba(201, 166, 72, 0.3);
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-m);
+}
+
+/* ── Running Totals Grid ────────────────────────── */
+
+.dashboard-totals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-s);
+}
+
+.dashboard-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-m) var(--space-s);
+}
+
+.dashboard-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  margin-bottom: var(--space-xs);
+}
+
+.dashboard-stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-green);
+  text-shadow: var(--glow-green);
+}
+
+.dashboard-stat-featured {
+  grid-column: 1 / -1;
+  padding: var(--space-l) var(--space-m);
+}
+
+.dashboard-stat-featured-value {
+  font-size: 3rem;
+}
+
+/* ── Chart Cards ────────────────────────────────── */
+
+.dashboard-chart-card {
+  padding: var(--space-m);
+}
+
+.dashboard-chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.dashboard-chart-line {
+  height: 280px;
+}
+
+.dashboard-chart-bar {
+  height: 480px;
+}
+
+.dashboard-chart-doughnut {
+  height: 320px;
+}
+
+.dashboard-charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-m);
+}
+
+.dashboard-chart-col {
+  min-width: 0;
+}
+
+/* ── Fun Stats Grid ─────────────────────────────── */
+
+.dashboard-fun-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-s);
+}
+
+.dashboard-fun-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-m) var(--space-s);
+}
+
+.dashboard-fun-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  margin-bottom: var(--space-xs);
+}
+
+.dashboard-fun-stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-green);
+  text-shadow: var(--glow-green);
+}
+
+.dashboard-fun-stat-category {
+  font-size: 1.125rem;
+  color: var(--color-gold);
+  text-shadow: none;
+}
+
+/* ── Comparisons ────────────────────────────────── */
+
+.dashboard-comparisons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-s);
+}
+
+.dashboard-comparison-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-m) var(--space-s);
+}
+
+.dashboard-comparison-emoji {
+  font-size: 2rem;
+  margin-bottom: var(--space-xs);
+  line-height: 1;
+}
+
+.dashboard-comparison-count {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-green);
+  text-shadow: var(--glow-green);
+  line-height: 1.2;
+}
+
+.dashboard-comparison-label {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--color-gray);
+  margin-top: var(--space-xxs);
+  text-transform: capitalize;
+}
+
+/* ── Fun Fact Card ──────────────────────────────── */
+
+.dashboard-funfact {
+  padding: var(--space-m) var(--space-l);
+  border-left: 3px solid var(--color-muted-gold);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-funfact-text {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--color-white);
+  line-height: 1.6;
+  font-style: italic;
+  transition: opacity 0.4s ease;
+}
+
+.dashboard-funfact-visible {
+  opacity: 1;
+}
+
+.dashboard-funfact-hidden {
+  opacity: 0;
+}
+
+/* ── Corporate Memo Card ───────────────────────── */
+
+.dashboard-memo {
+  padding: var(--space-m) var(--space-l);
+}
+
+.dashboard-memo-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.dashboard-memo-field {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-gray);
+  line-height: 1.5;
+}
+
+.dashboard-memo-field strong {
+  color: var(--color-muted-gold);
+  font-weight: 700;
+  margin-right: var(--space-xxs);
+}
+
+.dashboard-memo-divider {
+  height: 1px;
+  background: rgba(119, 141, 169, 0.2);
+  margin: var(--space-s) 0;
+}
+
+.dashboard-memo-body {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--color-white);
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* ── Empty State ────────────────────────────────── */
+
+.dashboard-empty {
+  text-align: center;
+  padding: var(--space-xxl) var(--space-m);
+}
+
+.dashboard-empty-text {
+  font-size: 1.125rem;
+  color: var(--color-gray);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .dashboard-fun-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: var(--space-l) var(--space-s) var(--space-xxl);
+  }
+
+  .dashboard-title {
+    font-size: 1.75rem;
+  }
+
+  .dashboard-totals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-stat-featured-value {
+    font-size: 2.25rem;
+  }
+
+  .dashboard-charts-row {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-chart-bar {
+    height: 400px;
+  }
+
+  .dashboard-fun-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-comparisons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-funfact {
+    padding: var(--space-s);
+  }
+
+  .dashboard-memo {
+    padding: var(--space-s);
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    padding: var(--space-m) var(--space-xs) var(--space-xl);
+  }
+
+  .dashboard-title {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-stat-featured-value {
+    font-size: 1.75rem;
+  }
+
+  .dashboard-chart-line {
+    height: 220px;
+  }
+
+  .dashboard-chart-bar {
+    height: 350px;
+  }
+
+  .dashboard-chart-doughnut {
+    height: 260px;
+  }
+
+  .dashboard-fun-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-comparisons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-stat-value {
+    font-size: 1.25rem;
+  }
+
+  .dashboard-fun-stat-value {
+    font-size: 1.25rem;
+  }
+
+  .dashboard-comparison-count {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .dashboard-title {
+    font-size: 1.25rem;
+  }
+
+  .dashboard-stat-featured-value {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-stat-value {
+    font-size: 1.125rem;
+  }
+
+  .dashboard-chart-line {
+    height: 180px;
+  }
+
+  .dashboard-chart-bar {
+    height: 300px;
+  }
+
+  .dashboard-chart-doughnut {
+    height: 220px;
+  }
+}
+
+/* ── Staggered Card Entrance ───────────────── */
+
+.dashboard-totals-grid .card {
+  animation: dashFadeSlideIn 0.5s ease-out both;
+}
+
+.dashboard-totals-grid .card:nth-child(1) { animation-delay: 0s; }
+.dashboard-totals-grid .card:nth-child(2) { animation-delay: 0.05s; }
+.dashboard-totals-grid .card:nth-child(3) { animation-delay: 0.1s; }
+.dashboard-totals-grid .card:nth-child(4) { animation-delay: 0.15s; }
+.dashboard-totals-grid .card:nth-child(5) { animation-delay: 0.2s; }
+
+@keyframes dashFadeSlideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
