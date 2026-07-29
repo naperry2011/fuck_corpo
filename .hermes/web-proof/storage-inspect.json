@@ -1,0 +1,5 @@
+{
+  "fuckcorpo_data": "{\"salary\":{\"amount\":65000,\"type\":\"annual\",\"currency\":\"EUR\"},\"breaks\":[{\"id\":\"break-0\",\"category\":\"Bathroom\",\"duration\":600000,\"timestamp\":\"2026-03-01T09:00:00.000Z\"}],\"settings\":{\"currency\":\"EUR\"},\"onboarded\":true}",
+  "flutter.fuckcorpo_state_v1": "\"{\\\"schemaVersion\\\":1,\\\"salary\\\":{\\\"amount\\\":65000,\\\"type\\\":\\\"annual\\\",\\\"currency\\\":\\\"EUR\\\"},\\\"breaks\\\":[{\\\"id\\\":\\\"break-0\\\",\\\"category\\\":\\\"Bathroom\\\",\\\"duration\\\":600000,\\\"timestamp\\\":\\\"2026-03-01T09:00:00.000Z\\\"}],\\\"settings\\\":{\\\"theme\\\":\\\"dark\\\",\\\"currency\\\":\\\"EUR\\\",\\\"timezone\\\":\\\"\\\",\\\"industry\\\":\\\"\\\",\\\"state\\\":\\\"\\\",\\\"soundEnabled\\\":true},\\\"achievements\\\":[],\\\"onboarded\\\":true,\\\"runningTimer\\\":null}\"",
+  "flutter.fuckcorpo_migrated_from_v0": "\"true\""
+}

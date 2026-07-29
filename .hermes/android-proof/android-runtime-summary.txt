@@ -1,0 +1,41 @@
+Device:
+sdk_gphone16k_x86_64
+17
+37
+Package version:
+    versionCode=1 minSdk=24 targetSdk=36
+    versionName=1.0.0
+    lastUpdateTime=2026-07-28 19:40:10
+      firstInstallTime=2026-07-28 19:40:10
+Proof files:
+../.hermes/android-proof/01-launch.png
+../.hermes/android-proof/01-launch.xml
+../.hermes/android-proof/02-applicant.png
+../.hermes/android-proof/02-applicant.xml
+../.hermes/android-proof/03-skills.png
+../.hermes/android-proof/03-skills.xml
+../.hermes/android-proof/04-offer.png
+../.hermes/android-proof/04-offer.xml
+../.hermes/android-proof/05-timer-home.png
+../.hermes/android-proof/05-timer-home.xml
+../.hermes/android-proof/06-log-break.png
+../.hermes/android-proof/06-log-break.xml
+../.hermes/android-proof/07-dashboard.png
+../.hermes/android-proof/07-dashboard.xml
+../.hermes/android-proof/08-achievements.png
+../.hermes/android-proof/08-achievements.xml
+../.hermes/android-proof/09-settings.png
+../.hermes/android-proof/09-settings.xml
+../.hermes/android-proof/10-dashboard-live.png
+../.hermes/android-proof/11-achievements-live.png
+../.hermes/android-proof/12-timer-live.png
+../.hermes/android-proof/13-log-break-after-tap.png
+../.hermes/android-proof/14-dashboard-after-break.png
+../.hermes/android-proof/15-running-timer.png
+../.hermes/android-proof/16-stopped-timer.png
+../.hermes/android-proof/17-dashboard-after-start-stop.png
+../.hermes/android-proof/android-runtime-summary.txt
+../.hermes/android-proof/current.png
+../.hermes/android-proof/current.xml
+../.hermes/android-proof/offer-field-focus.png
+../.hermes/android-proof/offer-field-typed.png

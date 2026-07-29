@@ -1,0 +1,66 @@
+# FuckCorpo
+
+> Satirical PWA that calculates money earned during bathroom breaks at work. "Capitalist Satire" aesthetic: Wall Street visual language turned pro-worker. No backend; all state is client-side.
+
+Generated: 2026-07-28 | commit 34e0f62
+
+## Current verified state
+
+- Two implementations of the same product live in this repo.
+- React SPA (`src/`, React 19 + Vite 7) is the reference and live app. No test suite. Storage: `localStorage` key `fuckcorpo_data`.
+- Flutter app (`app/`, Riverpod 3 + go_router 17 + fl_chart 1) has local MVP parity. Not released. Storage: `shared_preferences` key `fuckcorpo_state_v1`.
+- Flutter: `flutter analyze` clean, 30 test files / 269 tests passing, `flutter build web` succeeds, Android release APK builds and installs on emulator (debug-signed).
+- A one-shot v0 bridge migrates the React payload into Flutter v1 and never writes or deletes `fuckcorpo_data`.
+- Overall cutover verdict: NOT READY, no-go. See `docs/migration/release_readiness.md`.
+
+## Key docs
+
+- CODE_MAP.md: feature-oriented file map for both apps
+- ENTRY_POINTS.md: every execution entry point, build and deploy config
+- DATA_FLOW.md: system-level data movement
+- IMPORT_GRAPH_SUMMARY.md: dependency relationships
+- FEATURE_BOUNDARIES.md: component responsibility boundaries
+- fuckcorpo-design-system.md: colors, typography, components, spacing, CSS variables, accessibility
+- fuckcorpo-features.md: timer modes, calculator, categories, achievements, sharing, privacy
+- docs/migration/release_readiness.md: verified evidence and open blockers
+- docs/migration/cutover_plan.md: execution plan and go/no-go checklist
+- docs/migration/deviations.md: deliberate divergences from React
+- docs/ai/: memory, tasks, roadmap, decisions, architecture
+- docs/audit/: codebase audit findings
+
+## Commands
+
+Flutter, run from `app/`:
+- `flutter analyze`
+- `flutter test --reporter compact --concurrency=1` (269 tests)
+- `flutter build web` (output `app/build/web`)
+- `flutter build apk --release` (currently debug-signed)
+
+React, run from the repo root:
+- `npm run dev`
+- `npm run build`
+- `npm run preview`
+- `npm run lint`
+
+No CI exists for either app.
+
+## Remaining gates
+
+Blockers:
+- B1: no staging deployment. The Vercel project does not exist, so PWA installability, offline load, service-worker update, and Lighthouse are unverified.
+- B2: migration never run against a copy of a genuine pre-existing user profile.
+- B5: no release keystore, no signed app bundle, nothing on a Play track.
+- B6: iOS has never been built; Windows host cannot produce an IPA, and no written defer decision exists.
+
+Non-blocking, resolve or waive in writing:
+- N1: domain and data coverage (>= 90%) never measured.
+- N2: analyze and test do not run in CI.
+- N5: Android QA is emulator-only, no physical device run.
+
+Cutover also requires the section 8 go/no-go checklist in the cutover plan to be fully checked plus explicit written owner approval.
+
+## Constraints
+
+- Do not modify React source while it remains the live reference.
+- Never write or delete the `fuckcorpo_data` key.
+- Brand voice: irreverent, pro-worker, corporate/financial language used satirically.

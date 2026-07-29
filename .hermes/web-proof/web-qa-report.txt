@@ -1,0 +1,12 @@
+legacy_preserved=true
+v1_written=true
+marker_true=true
+backup_absent=true
+migrated_salary=65000
+migrated_currency=EUR
+migrated_break_count=2
+migrated_onboarded=true
+localStorage_keys=flutter.fuckcorpo_migrated_from_v0,flutter.fuckcorpo_state_v1,fuckcorpo_data
+corrupt_backup_written=true
+corrupt_marker_true=true
+corrupt_v1_absent=true

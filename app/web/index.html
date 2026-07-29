@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    Replaced by the value of the `--base-href` argument passed to
+    `flutter build`. Left as "/" for the Vercel static deploy, which matches the
+    manifest scope and start_url.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Track money earned during bathroom breaks on company time. Your quarterly earnings report, from the stall.">
+  <meta name="theme-color" content="#0a1128">
+
+  <!--
+    Flutter web renders to canvas, so crawlers and link unfurlers see almost
+    nothing from the app itself. These static tags are the only preview a shared
+    link gets. See the migration plan, Section 11.2.
+  -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FuckCorpo: Get Paid to Shit">
+  <meta property="og:description" content="Track money earned during bathroom breaks on company time.">
+  <meta property="og:site_name" content="FuckCorpo">
+  <meta property="og:image" content="social/og-card.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="FuckCorpo wordmark over a rising earnings chart, with a $POOP ticker reading plus 420.69 percent.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FuckCorpo: Get Paid to Shit">
+  <meta name="twitter:description" content="Track money earned during bathroom breaks on company time.">
+  <meta name="twitter:image" content="social/og-card.png">
+  <meta name="twitter:image:alt" content="FuckCorpo wordmark over a rising earnings chart, with a $POOP ticker reading plus 420.69 percent.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FuckCorpo">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>FuckCorpo: Get Paid to Shit</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #0a1128;
+    }
+    /*
+      Flutter web's first paint is slow on a cold load, especially on cellular.
+      Without this the user stares at a blank page. Removed on flutter-first-frame.
+    */
+    #fc-boot {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background-color: #0a1128;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      transition: opacity 250ms ease-out;
+      z-index: 9999;
+    }
+    #fc-boot.fc-boot-done {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #fc-boot .fc-boot-brand {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    #fc-boot .fc-boot-brand span {
+      color: #00b559;
+    }
+    #fc-boot .fc-boot-status {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #778da9;
+    }
+  </style>
+</head>
+<body>
+  <div id="fc-boot">
+    <div class="fc-boot-brand"><span>$</span> FuckCorpo</div>
+    <div class="fc-boot-status">Preparing quarterly earnings report</div>
+  </div>
+
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var boot = document.getElementById('fc-boot');
+      if (!boot) return;
+      boot.classList.add('fc-boot-done');
+      window.setTimeout(function () { boot.remove(); }, 300);
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
