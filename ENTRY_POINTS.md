@@ -4,8 +4,8 @@ Generated: 2026-07-28 | commit 34e0f62 | by /code-map
 
 All execution entry points. There is still no server, worker, cron job, or serverless handler in this repository. The executable surface is two client apps plus their build and asset scripts:
 
-* React SPA (`src/`) — the reference/live app.
-* Flutter app (`app/`) — web, Android, and iOS targets. Local MVP parity complete; not released.
+* React SPA (`src/`) — deprecated/frozen legacy web app retained for rollback and migration verification.
+* Flutter app (`app/`) — forward implementation for web, Android, and iOS targets. Local MVP parity complete; public cutover gates still open.
 
 ---
 
@@ -81,7 +81,7 @@ Run from `app/`:
 
 ---
 
-# React app (`src/`), reference implementation
+# React app (`src/`), deprecated legacy implementation
 
 ## Browser Document Entry
 
@@ -118,7 +118,7 @@ Generates and auto-registers the Workbox service worker at build time; precaches
 
 ## Build and Dev Scripts
 
-Path: `package.json` scripts
+Path: `package.json` scripts. Use these only for rollback/reference verification while React is deprecated.
 * `npm run dev` — Vite dev server
 * `npm run build` — production build to `dist/` (validated as `npm run build -- --mode production`)
 * `npm run preview` — serve the build

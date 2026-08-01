@@ -124,14 +124,14 @@ Architectural decision records. Append-only. Do not rewrite a superseded record;
 
 ---
 
-## ADR-009: React remains authoritative until written cutover approval
+## ADR-009: React is deprecated/frozen until written cutover approval
 
 **Date:** 2026-07-28
 **Status:** Accepted, active
 
 **Context.** The Flutter app reached complete local MVP parity and is green on analyze, 269 tests, web build, and an Android release-mode emulator run. That is easy to mistake for "ready to ship."
 
-**Decision.** Local parity does **not** authorize cutover. React stays live until every gate in `docs/migration/cutover_plan.md` passes, including staging deployment, real-profile migration verification, Android signing and internal track, iOS TestFlight or a written defer decision, final brand approval, and an explicit written go from the repository owner.
+**Decision.** Local parity authorizes deprecating/freeze-framing React for new product work, but it does **not** authorize production cutover or deletion. React remains available as the rollback and migration-reference implementation until every gate in `docs/migration/cutover_plan.md` passes, including staging deployment, real-profile migration verification, Android signing and internal track, iOS TestFlight or a written defer decision, final brand approval, and an explicit written go from the repository owner.
 
 **Consequences.** Documentation must state parity and release-readiness as two separate things everywhere. Any doc that implies the Flutter app is shippable because tests pass is wrong and should be corrected.
 

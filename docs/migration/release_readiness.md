@@ -1,9 +1,9 @@
 # Release readiness (P9)
 
 Date: 2026-07-28
-Overall verdict: **NOT READY. NO-GO for cutover.**
+Overall verdict: **NOT READY. NO-GO for production cutover.**
 
-React is live and remains the reference implementation. This document
+React is deprecated/frozen for new product work and remains available as the rollback and migration-reference implementation. This document
 summarizes what has actually been verified, with exact local paths, and what is
 still open. The execution plan for closing the gaps is
 `docs/migration/cutover_plan.md`.

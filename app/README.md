@@ -1,17 +1,26 @@
-# fuckcorpo
+# FuckCorpo Flutter App
 
-A new Flutter project.
+This is the forward implementation of FuckCorpo for web, Android, and iOS.
 
-## Getting Started
+The legacy React/Vite web app at the repository root is deprecated and frozen. Keep it available for migration checks and rollback until the cutover plan says it can be archived.
 
-This project is a starting point for a Flutter application.
+## Common commands
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+flutter pub get
+flutter analyze
+flutter test --reporter compact --concurrency=1
+flutter build web
+```
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Entry points
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- `lib/main.dart` — bootstraps storage and the React v0 localStorage migration bridge before `runApp`.
+- `lib/app.dart` — app root and theme mode.
+- `lib/router.dart` — route table and shell.
+- `web/index.html` — Flutter web shell.
+- `vercel.json` — static Flutter web deploy config for `build/web`.
+
+## Release posture
+
+Local MVP parity is complete, but production cutover still requires the gates in `../docs/migration/cutover_plan.md`.

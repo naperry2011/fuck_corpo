@@ -3,9 +3,7 @@
 Date: 2026-07-28
 Status: **PLAN ONLY. Not approved, not executed.**
 
-React remains the live and reference implementation. Nothing in this document
-has been deployed, committed, or pushed. Every step below requires explicit
-human approval before it runs.
+React is now deprecated/frozen for new product work, but remains available as the rollback and migration-reference implementation. Nothing in this document has been deployed, committed, or pushed. Every step below requires explicit human approval before it runs. See `docs/migration/react_deprecation.md`.
 
 Source of truth for phase and gate definitions:
 `.hermes/plans/2026-07-28_164551-flutter-migration-parity-plan.md`.

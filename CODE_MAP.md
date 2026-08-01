@@ -8,15 +8,15 @@ Feature-oriented index of the repository. Descriptive only.
 
 Two implementations of the same product:
 
-| | React app (reference) | Flutter app (port) |
+| | React app (deprecated legacy) | Flutter app (forward) |
 |---|---|---|
 | Location | `src/`, `index.html`, `vite.config.js` | `app/` |
-| Status | Reference / live app. Authoritative until cutover gates are approved. | Local MVP parity complete. Not released. |
+| Status | Deprecated/frozen. Retained for rollback and real-profile migration verification until cutover/archive gates pass. | Forward implementation. Local MVP parity complete; public release/cutover gates still open. |
 | Stack | React 19, Vite 7, react-router-dom 7, Chart.js, vite-plugin-pwa | Flutter (Dart SDK ^3.12.2), Riverpod 3, go_router 17, fl_chart 1 |
 | Tests | none | 30 files, 269 tests, all passing |
 | Storage | `localStorage` key `fuckcorpo_data` | `shared_preferences` key `fuckcorpo_state_v1` |
 
-Parity scope is the planned local MVP. Release/cutover parity (staging deploy, real-profile migration, Android signing, iOS, owner approval) is a separate open track. See `docs/migration/release_readiness.md` and `FEATURE_BOUNDARIES.md`.
+Parity scope is the planned local MVP. React is now deprecated/frozen, but it remains the rollback and migration reference until release/cutover gates pass. Release/cutover parity (staging deploy, real-profile migration, Android signing, iOS/defer decision, owner approval) is a separate open track. See `docs/migration/react_deprecation.md`, `docs/migration/release_readiness.md`, and `FEATURE_BOUNDARIES.md`.
 
 Neither app has a backend. All state is client-side.
 
@@ -94,9 +94,9 @@ Dev-only: `app/lib/dev/widget_gallery.dart` is not routed and not reachable; it 
 
 ---
 
-# Part 2: React app (`src/`), reference implementation
+# Part 2: React app (`src/`), deprecated legacy implementation
 
-React 19 + Vite 7 SPA, `react-router-dom` v7, `vite-plugin-pwa`, Chart.js via `react-chartjs-2`, `lucide-react`. No backend, no test suite, no TypeScript.
+React 19 + Vite 7 SPA, `react-router-dom` v7, `vite-plugin-pwa`, Chart.js via `react-chartjs-2`, `lucide-react`. No backend, no test suite, no TypeScript. Deprecated/frozen: do not add product work here unless explicitly required by `docs/migration/react_deprecation.md`.
 
 ## App Shell and Routing (UI)
 

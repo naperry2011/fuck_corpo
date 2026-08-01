@@ -48,7 +48,7 @@
 - iOS/TestFlight QA not run in this Windows session.
 - Browser manual QA against a hosted/staged URL not run.
 - Final production icons/brand assets may still require design approval even though placeholder/installable icons exist.
-- React remains live/reference and must not be deleted until cutover gates pass.
+- React is now deprecated/frozen, but must not be deleted until cutover gates pass.
 
 ## Next cutover/release steps
 1. Run local browser smoke on `app/build/web` or a local static server.

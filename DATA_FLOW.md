@@ -110,7 +110,7 @@ Downstream Consumers: offline app loads
 
 ---
 
-# React app (`src/`) — reference implementation
+# React app (`src/`) — deprecated legacy implementation
 
 ## Onboarding Intake
 

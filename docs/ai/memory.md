@@ -14,7 +14,7 @@ Project history and current state. Written for AI-assisted sessions. Facts only;
 
 ## Current state in one paragraph
 
-The repo contains **two implementations**. The React 19 + Vite 7 SPA in `src/` is the reference and still-live app. A Flutter port in `app/` has reached **complete local MVP parity** and is green on analyze, 269 tests, web build, and an Android release-mode emulator run. It has **not** been released. React remains authoritative until the release/cutover gates are approved in writing.
+The repo contains **two implementations**. The React 19 + Vite 7 SPA in `src/` is now **deprecated/frozen** and retained for rollback plus real-profile migration verification. The Flutter app in `app/` is the **forward implementation** and has reached complete local MVP parity with green analyze, 269 tests, web build, and an Android release-mode emulator run. Public cutover/release gates are still open.
 
 ---
 
@@ -59,7 +59,7 @@ Of the 11 audit bugs found in React, the Flutter app resolves 10 by construction
 * BUG-010 dead `timezone` setting → `@Deprecated`, retained only for import compatibility
 * BUG-011 onboarding re-renders → not reproduced in the Flutter wizard
 
-BUG-001 and the React-only items (F-001 router advisories, F-010 lint failures, F-011 build-chain advisories, F-015 bundle size) remain open **for React**, which is still the live app.
+BUG-001 and the React-only items (F-001 router advisories, F-010 lint failures, F-011 build-chain advisories, F-015 bundle size) remain open **for React**, which is deprecated/frozen rather than the forward implementation.
 
 ---
 

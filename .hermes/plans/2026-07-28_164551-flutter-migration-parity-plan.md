@@ -9,7 +9,7 @@ Status: PLANNING ONLY. No code is written by this document.
 
 ## 0. The one rule
 
-**The React app is not deprecated until the Flutter app reaches 100% parity with what React ships today.**
+**Superseded status update:** the Flutter app has reached local MVP parity, so the React app is now deprecated/frozen for new product work. It is still retained for rollback and migration verification until the cutover/archive gates pass.
 
 Parity means: every screen, every visible number, every interaction, every persisted field, and every satirical string that exists in `src/` today exists in Flutter and behaves the same or better. Parity is measured against the *shipped React behavior*, not against `fuckcorpo-features.md`.
 

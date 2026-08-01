@@ -5,7 +5,7 @@ Date: 2026-07-28
 ## Scope
 Runtime verification of the Flutter port on an Android emulator after the code parity phases passed local tests and web build.
 
-This is not production cutover approval. React remains the live/reference implementation until hosted browser QA, Android release QA, iOS/TestFlight QA, final assets, and rollback/cutover gates pass.
+This is not production cutover approval. React is deprecated/frozen but remains available for rollback and migration verification until hosted browser QA, Android release QA, iOS/TestFlight or defer decision, final assets, and rollback/cutover gates pass.
 
 ## Device and artifact
 - Device: `emulator-5554`

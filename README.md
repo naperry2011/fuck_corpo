@@ -4,11 +4,11 @@
 
 ### *Your Quarterly Bathroom Earnings Report*
 
-**A Progressive Web App that calculates exactly how much your employer pays you to take bathroom breaks.**<br>
+**A Flutter-first app that calculates exactly how much your employer pays you to take bathroom breaks.**<br>
 **Because your time is valuable -- even in the bathroom.**
 
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
-[![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev)
+[![Flutter](https://img.shields.io/badge/Flutter-Forward-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-3-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
 [![PWA](https://img.shields.io/badge/PWA-Ready-00b559?style=for-the-badge&logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
 [![License](https://img.shields.io/badge/License-MIT-ffd60a?style=for-the-badge)](LICENSE)
 
@@ -22,11 +22,26 @@
 
 ## :memo: EXECUTIVE SUMMARY
 
-FuckCorpo is a satirical PWA that tracks money earned during bathroom breaks at work. Enter your salary, start the timer when nature calls, and watch your "bathroom earnings" tick up in real time. Think of it as a stock ticker for your most productive meetings -- the ones you attend solo, seated comfortably, behind a locked door.
+FuckCorpo is a satirical app that tracks money earned during bathroom breaks at work. Enter your salary, start the timer when nature calls, and watch your "bathroom earnings" tick up in real time. Think of it as a stock ticker for your most productive meetings -- the ones you attend solo, seated comfortably, behind a locked door.
 
 Built with the polished aesthetic of Wall Street trading floors and Fortune 500 annual reports, but subverted to celebrate the one thing corporate America can never fully optimize: **your bathroom time**.
 
 > *"SHAREHOLDER VALUE: YOU."*
+
+---
+
+## :warning: IMPLEMENTATION STATUS
+
+**Flutter is now the forward implementation.** Product work should happen in `app/`.
+
+The original React/Vite web app is **deprecated and frozen**. It remains in the repository only as a rollback path and migration reference until the cutover gates and 30-day quiet window are complete. See `docs/migration/react_deprecation.md` and `docs/migration/cutover_plan.md`.
+
+Current posture:
+
+| Implementation | Location | Status |
+|---|---|---|
+| Flutter app | `app/` | Forward implementation for web, Android, and iOS |
+| React/Vite web | `src/`, root web files | Deprecated/frozen legacy implementation; rollback and migration reference only |
 
 ---
 
@@ -43,7 +58,7 @@ Built with the polished aesthetic of Wall Street trading floors and Fortune 500 
 | :iphone: **Mobile-First PWA** | Installable, offline-capable, built for bathroom use. Add to home screen and never miss tracking a session. |
 | :crescent_moon: **Dark / Light Mode** | Dark mode default -- essential for bathroom lighting conditions. Light mode available for the brave. |
 | :outbox_tray: **Data Export / Import** | Your data, your rules. Full JSON export and import. No vendor lock-in on your bathroom portfolio. |
-| :lock: **100% Private** | All data stays in localStorage. No accounts, no tracking, no analytics. Your bathroom habits are yours alone. |
+| :lock: **100% Private** | All data stays on device. No accounts, no tracking, no analytics. Your bathroom habits are yours alone. |
 
 ---
 
@@ -51,13 +66,13 @@ Built with the polished aesthetic of Wall Street trading floors and Fortune 500 
 
 | Layer | Technology | Purpose |
 |---|---|---|
-| **Framework** | React 19 | UI component architecture |
-| **Build Tool** | Vite 7 | Lightning-fast dev server & builds |
-| **Charts** | Chart.js + react-chartjs-2 | Earnings visualizations & dashboards |
-| **Routing** | react-router-dom 7 | SPA navigation |
-| **Icons** | lucide-react | Clean, professional iconography |
-| **PWA** | vite-plugin-pwa + Workbox | Offline capability & installability |
-| **Storage** | localStorage | Zero-dependency, 100% private data |
+| **Framework** | Flutter / Dart | Shared app implementation for web and native targets |
+| **State** | Riverpod | App state, persistence write path, derived values |
+| **Routing** | go_router | App shell and route navigation |
+| **Charts** | fl_chart | Earnings visualizations and dashboard charts |
+| **Storage** | shared_preferences plus v0 localStorage bridge | Local-first persistence and React data migration |
+| **PWA** | Flutter web + generated service worker | Offline-capable installable web app |
+| **Fonts** | Self-hosted Playfair Display, Work Sans, Roboto Mono | No runtime font CDN dependency |
 
 ---
 
@@ -65,26 +80,39 @@ Built with the polished aesthetic of Wall Street trading floors and Fortune 500 
 
 ### Prerequisites
 
-- Node.js 18+
-- npm 9+
+- Flutter SDK with Dart 3 support
+- Android toolchain for Android builds
+- macOS/Xcode for iOS builds
 
 ### Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/fuck_corpo2.git
-
-# Enter the corporate headquarters
-cd fuck_corpo2
-
-# Install dependencies (the only corporate expense)
-npm install
-
-# Launch the development server
-npm run dev
+cd app
+flutter pub get
+flutter run -d chrome
 ```
 
-Then open [http://localhost:5173](http://localhost:5173) and begin maximizing your bathroom ROI.
+### Common validation
+
+```bash
+cd app
+flutter analyze
+flutter test --reporter compact --concurrency=1
+flutter build web
+```
+
+The Flutter web production build outputs to `app/build/web/`.
+
+### Legacy React web
+
+The deprecated React app can still be built for rollback/reference checks:
+
+```bash
+npm ci
+npm run build -- --mode production
+```
+
+Do not add new product work to React unless `docs/migration/react_deprecation.md` allows it.
 
 ---
 
@@ -115,58 +143,25 @@ FuckCorpo uses a **"Capitalist Satire"** design system -- appropriating the visu
 
 ## :file_folder: ORGANIZATIONAL STRUCTURE
 
-```
-src/
-├── main.jsx                          # Application entry point
-├── App.jsx                           # Root component & routing
-├── App.css                           # Global app styles
-├── index.css                         # Base styles & CSS variables
-│
-├── components/
-│   ├── Application.jsx               # Corporate job application flow
-│   ├── Application.css
-│   ├── layout/
-│   │   ├── Layout.jsx                # Main layout wrapper
-│   │   ├── Layout.css
-│   │   ├── Navbar.jsx                # Top navigation bar
-│   │   ├── Navbar.css
-│   │   ├── Ticker.jsx                # Stock ticker tape component
-│   │   └── Ticker.css
-│   └── shared/
-│       ├── AnimatedCurrency.jsx      # Animated dollar amount display
-│       ├── Button.jsx                # Styled button component
-│       ├── Button.css
-│       ├── Card.jsx                  # Premium card component
-│       ├── Card.css
-│       ├── PageTransition.jsx        # Fade & slide page transitions
-│       ├── PageTransition.css
-│       ├── Toast.jsx                 # Notification toast system
-│       └── Toast.css
-│
-├── pages/
-│   ├── Landing.jsx                   # Hero landing page
-│   ├── Landing.css
-│   ├── Dashboard.jsx                 # Earnings dashboard & charts
-│   ├── Dashboard.css
-│   ├── Timer.jsx                     # Live break timer
-│   ├── Timer.css
-│   ├── Achievements.jsx              # Badge collection & progress
-│   ├── Achievements.css
-│   ├── Settings.jsx                  # Salary, preferences & data mgmt
-│   └── Settings.css
-│
-├── context/
-│   ├── AppContext.jsx                # Global state (salary, breaks, theme)
-│   └── ToastContext.jsx              # Toast notification state
-│
-├── hooks/
-│   ├── useCountUp.js                 # Animated number count-up hook
-│   └── useSound.js                   # Cha-ching sound effect hook
-│
-└── utils/
-    ├── calculations.js               # Salary-to-per-minute conversions
-    ├── funFacts.js                    # Satirical facts & comparisons
-    └── storage.js                     # localStorage read/write helpers
+```text
+app/
+├── lib/                              # Flutter product code
+│   ├── main.dart                     # App bootstrap and v0 migration
+│   ├── app.dart                      # MaterialApp.router and theme mode
+│   ├── router.dart                   # Routes and shell
+│   ├── core/                         # Theme tokens and formatters
+│   ├── data/                         # Persistence, storage, migration bridge
+│   ├── domain/                       # Pure calculations, models, copy, achievements
+│   ├── features/                     # Timer, dashboard, achievements, onboarding, settings
+│   ├── state/                        # Controllers and providers
+│   └── widgets/                      # Product design-system widgets
+├── test/                             # Unit and widget tests
+├── web/                              # Flutter web shell, manifest, icons, social card
+├── android/                          # Android platform target
+├── ios/                              # iOS platform target
+└── vercel.json                       # Flutter web static deploy config
+
+src/                                  # Deprecated React/Vite web implementation
 ```
 
 ---
@@ -174,17 +169,17 @@ src/
 ## :rocket: BUILD & DEPLOYMENT
 
 ```bash
-# Production build
-npm run build
-
-# Preview the production build locally
-npm run preview
-
-# Lint the codebase
-npm run lint
+cd app
+flutter build web
 ```
 
-The production build outputs to `dist/` with full PWA support -- service worker, manifest, and offline caching included.
+The production Flutter web build outputs to `app/build/web/`. `app/vercel.json` is configured for static hosting with SPA rewrites and cache headers, but the release docs still require staging verification before production cutover.
+
+See:
+
+- `docs/migration/release_readiness.md`
+- `docs/migration/cutover_plan.md`
+- `docs/migration/react_deprecation.md`
 
 ---
 
@@ -194,9 +189,9 @@ Contributions welcome. Whether you are fixing bugs, adding features, or improvin
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/bathroom-innovation`)
-3. Commit your changes (`git commit -m "Add bidet earnings multiplier"`)
-4. Push to the branch (`git push origin feature/bathroom-innovation`)
-5. Open a Pull Request
+3. Keep product changes in the Flutter app under `app/`
+4. Run `flutter analyze` and `flutter test --reporter compact --concurrency=1`
+5. Commit your changes and open a Pull Request
 
 Please keep the satirical corporate tone in any user-facing copy. We are irreverent but never mean-spirited. Pro-worker, anti-exploitation, always.
 

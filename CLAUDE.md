@@ -4,39 +4,59 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**FuckCorpo** is a satirical web application that calculates and tracks money earned during bathroom breaks at work. It uses a "Capitalist Satire" aesthetic — appropriating Wall Street/corporate visual language to celebrate worker autonomy. Think *The Onion* meets *Wall Street Journal*.
+**FuckCorpo** is a satirical app that calculates and tracks money earned during bathroom breaks at work. It uses a "Capitalist Satire" aesthetic: Wall Street / corporate visual language subverted for pro-worker bathroom-break autonomy.
 
-**Current status**: Design specification phase (pre-development). No source code, build system, or dependencies exist yet. The repository contains two specification documents that define what needs to be built.
+## Current Implementation Status
 
-## Specification Documents
+The repository contains two implementations:
 
-- **fuckcorpo-design-system.md** — Complete visual design system: color palette, typography (Playfair Display / Work Sans / Roboto Mono), component styles (buttons, cards, inputs, navigation), animations, layout grid (8pt), spacing scale, CSS variables, and accessibility requirements (WCAG AAA).
-- **fuckcorpo-features.md** — Feature specification: timer modes (quick log, live, automatic), salary calculator, break categories, leaderboards, achievements/badges, shareable content, data visualizations, privacy options, and educational/satirical content.
+| Implementation | Location | Status |
+|---|---|---|
+| Flutter | `app/` | **Forward implementation** for web, Android, and iOS |
+| React/Vite | `src/` plus root web files | **Deprecated/frozen legacy implementation** retained for rollback and migration verification |
 
-## Technical Requirements (from specs)
+Do not add new product work to the React app unless the change is explicitly required for rollback safety, migration proof, or an urgent production fix before cutover. See `docs/migration/react_deprecation.md`.
 
-- **PWA** (Progressive Web App) — mobile-first, installable, offline-capable
-- **Dark mode primary**, light mode optional
-- **Local storage** as primary data store; optional account/backend for sync
-- **Anonymous leaderboard** backend for community features
-- **Fonts**: Google Fonts — Playfair Display (display), Work Sans (body), Roboto Mono (data/numbers)
-- **Responsive breakpoints**: 320px (mobile), 768px (tablet), 1024px (desktop), 1440px (wide)
-- **Max content width**: 1200px–1400px
+Flutter local MVP parity has been verified, but public cutover is not complete. Release blockers and cutover gates are tracked in `docs/migration/release_readiness.md` and `docs/migration/cutover_plan.md`.
 
-## Design System Quick Reference
+## Important Documents
 
-| Token | Value |
-|---|---|
-| Corporate Navy | `#0a1128` |
-| Slate | `#1e2749` |
-| Stock Market Green | `#00b559` |
-| Stock Market Red | `#e63946` |
-| Achievement Gold | `#ffd60a` |
-| Cool Gray | `#778da9` |
-| Muted Gold | `#c9a648` |
+- `README.md` — current project overview and commands.
+- `CODE_MAP.md` — feature-oriented repository map.
+- `ENTRY_POINTS.md` — executable entry points.
+- `FEATURE_BOUNDARIES.md` — ownership rules, especially React vs Flutter migration boundaries.
+- `DATA_FLOW.md` — local-only data movement and v0-to-v1 migration behavior.
+- `docs/migration/react_deprecation.md` — React web deprecation rules.
+- `docs/migration/cutover_plan.md` — gates before production cutover and archive.
+- `docs/migration/release_readiness.md` — verified evidence and remaining blockers.
+- `fuckcorpo-design-system.md` — visual design system source of truth.
+- `fuckcorpo-features.md` — product feature specification.
 
-CSS variables are defined in `fuckcorpo-design-system.md` under "Implementation Notes" — use these as the starting point for any CSS/theme setup.
+## Flutter Commands
+
+Run from `app/`:
+
+```bash
+flutter pub get
+flutter analyze
+flutter test --reporter compact --concurrency=1
+flutter build web
+```
+
+Android release APK builds locally, but release signing / Play internal track are still open cutover items. iOS cannot be built on this Windows host unless a macOS build path is provided or iOS is formally deferred.
+
+## Legacy React Commands
+
+Run from the repository root only when rollback/reference verification is needed:
+
+```bash
+npm ci
+npm run build -- --mode production
+npm run lint
+```
+
+The React app persists unversioned local data under `localStorage` key `fuckcorpo_data`. Flutter's v0 migration bridge may read this key once, but must never write or delete it.
 
 ## Brand Voice
 
-Irreverent but not mean-spirited. Pro-worker, anti-exploitation. Uses corporate/financial language satirically (e.g., "QUARTERLY EARNINGS REPORT" for bathroom stats, fake ticker symbols like `$POOP`). Copy should sound like an official corporate document that's been subverted.
+Irreverent but not mean-spirited. Pro-worker, anti-exploitation. Uses corporate/financial language satirically, such as "QUARTERLY EARNINGS REPORT" and fake ticker symbols like `$POOP`. Copy should sound like an official corporate document that has been subverted.

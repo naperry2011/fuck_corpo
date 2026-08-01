@@ -17,7 +17,7 @@ Two client-only apps, no server component in either.
           +---------------+---------------+
           |                               |
     React SPA (src/)                Flutter app (app/)
-    reference / live                port, local MVP parity
+    deprecated legacy               forward implementation
           |                               |
     localStorage                    shared_preferences
     "fuckcorpo_data"                "fuckcorpo_state_v1"
@@ -110,9 +110,9 @@ Charts use `fl_chart`, confined to `features/dashboard/widgets/`. The 24-hour br
 
 ---
 
-## React architecture (reference)
+## React architecture (deprecated legacy)
 
-Single-page app, `useReducer` store in `src/context/AppContext.jsx`, persisted to `localStorage` by a `useEffect` on state. Routes are `/`, `/dashboard`, `/achievements`, `/settings`, with an onboarding gate in `App.jsx`.
+Deprecated/frozen single-page app, `useReducer` store in `src/context/AppContext.jsx`, persisted to `localStorage` by a `useEffect` on state. It is retained for rollback and migration verification; do not add product work here. Routes are `/`, `/dashboard`, `/achievements`, `/settings`, with an onboarding gate in `App.jsx`.
 
 Known structural weaknesses, all addressed in the port:
 * No versioning on the persisted blob.

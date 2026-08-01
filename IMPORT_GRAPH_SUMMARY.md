@@ -66,7 +66,9 @@ Each third-party package is confined to a single module or folder, so any one of
 
 ---
 
-# React app (`src/`) — reference implementation
+# React app (`src/`) — deprecated legacy implementation
+
+React is frozen for new product work. The import graph below is retained for rollback/debugging context and v0 migration reference only.
 
 ## Core Dependency Nodes
 

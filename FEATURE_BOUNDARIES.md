@@ -12,8 +12,8 @@ The hardest boundary in the repo.
 
 | | React (`src/`) | Flutter (`app/`) |
 |---|---|---|
-| Role | Reference / live app | Port, local MVP parity complete |
-| Owns | Current user-facing behaviour | Future user-facing behaviour, pending cutover |
+| Role | Deprecated/frozen legacy app | Forward implementation; local MVP parity complete |
+| Owns | Rollback path and migration reference until cutover/archive gates pass | Product work and future user-facing behaviour |
 | Shared code | **none** | **none** |
 | Shared contract | The v0 JSON shape written to `localStorage` key `fuckcorpo_data` | Reads that shape once, at first boot |
 
@@ -21,7 +21,7 @@ Rules:
 * No import edge exists or should be created between `src/` and `app/`.
 * React's `fuckcorpo_data` key is **read-only from Flutter**. Never write or delete it — it is the rollback path.
 * Behaviour changes during the migration window should land in **both** apps, or be explicitly recorded as a deviation in `docs/migration/deviations.md`.
-* React remains authoritative until the release/cutover gates in `docs/migration/cutover_plan.md` are approved in writing.
+* React is deprecated for product work, but must remain rollback-safe until the release/cutover gates in `docs/migration/cutover_plan.md` are approved in writing. See `docs/migration/react_deprecation.md`.
 
 ---
 
